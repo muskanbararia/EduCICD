@@ -25,3 +25,8 @@ steps:
     publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
+- task: AzureRmWebAppDeployment@3
+  inputs:
+    azureSubscription: 'ServicePlan2704a50d-85ab (S1: 1)'
+    WebAppName: 'CICDEDU'
+    Package: $(System.ArtifactsDirectory)/**/*.zip
